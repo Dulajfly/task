@@ -1,0 +1,21 @@
+{% extends 'base/main.html' %}
+{% block content %}
+<div class="header-bar">
+    <h2>Register</h2>
+</div>
+
+<div class="card-body">
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            {{ field.label_tag }}
+            <p style="margin-top: 5px; margin-bottom: 10px;">{{ field }}</p>
+        {% endfor %}
+
+        <input class="button" type="submit" value="Register">
+    <p>Already have an account? <a class="button" href="{% url 'login' %}">Login</a></p>
+    </form>
+</div>
+
+
+{% endblock %}
